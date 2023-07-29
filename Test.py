@@ -1,4 +1,4 @@
-nome = import (Qual o seu primeiro nome? )
-snome = import (Qual o seu sobre nome? )
-print (nome, snome)
+nome = input ('Qual o seu primeiro nome? ' )
+snome = input ('Qual o seu sobre nome? ' )
+print ("Seu nome é:", nome, snome)
 
