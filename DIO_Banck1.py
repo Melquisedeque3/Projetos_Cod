@@ -1,3 +1,30 @@
+# Exercício 01
+# def área():
+
+#     print('Controle de terreno')
+#     print('_' * 25 )
+#     largura = float(input('\nLargura (m): '))
+#     comprimento = float(input('Comprimento (m): '))
+#     area = largura * comprimento
+#     print(f'\nA área de um terreno de {largura}x{comprimento} é de {area:.2f}m2\n')
+
+# área()
+
+
+# def frase(work):
+#     mutipik = len(work)
+#     print('-=' * (mutipik//2))
+#     print(      work)
+#     print('-=' * (mutipik//2))
+#     print(mutipik)
+
+
+# frase('  qual a palavra  ')
+# frase('  nada  ')
+# frase('  A vida tem dessas coisas interessante  ')
+# frase('  Melquisedeque  ')
+
+# frase()
 
 menu = """
 ======== Menu ========
@@ -16,25 +43,34 @@ extrato = ""
 numero_saques = 0
 LIMITE_SAQUES = 3
 
-while True:
-    opcao = input(menu)
+def extratos(): 
+    ms_extrato = f"Seu saldo atual é de R$ {saldo:.2f}\n"
+            
+            # Resumo de depositos e saques
+    print('=============== Extrato =============== \n')
+    print('| Operações não realizadas             |\n' if not extrato else extrato)
+    print(ms_extrato)
+    print('DioBank================================ ')
 
-    if opcao == 'e':
-        extratos()
-    
-    elif opcao == 'd':
-        deposito = float(input('\nQuanto deseja depositar? \n'))
-
+def depositos():
+    deposito = float(input('\nQuanto deseja depositar? \n'))
+    # saldo = 0
+    # extrato = ""
         # Operação de depósito:
-        if deposito > 0:
-            saldo += deposito
-            extrato += f"Deposito: R${deposito:.2f}\n"
-            print('\nDeposito realizado com sucesso.\n ')
+    if deposito > 0:
+        saldo += deposito
+        extrato += (f"Deposito: R${deposito:.2f}\n")
+        print('\nDeposito realizado com sucesso.\n ')
 
             # Deposito não realizado
-        else:
-            print('Não foi possível realizar a operação, \n  \n     Deposite um valor válido.')       
-       
+    else:
+        print('Não foi possível realizar a operação, \n  \n     Deposite um valor válido.') 
+
+while True:
+    opcao = input(menu) 
+    if opcao == 'd':
+        depositos()
+
     elif opcao == 's':
         
         saque = float(input('Quanto deseja sacar? '))
@@ -65,16 +101,7 @@ while True:
     elif opcao == 'q':
         break
 
+    elif opcao == 'e':
+        extratos()
     else: 
         print ('Opção inválida, por favor digite novamente a opção desejada')
-
-
-def extratos():
-            
-    ms_extrato = f"Seu saldo atual é de R$ {saldo:.2f}\n"
-            
-            # Resumo de depositos e saques
-    print('=============== Extrato =============== \n')
-    print('| Operações não realizadas             |\n' if not extrato else extrato)
-    print(ms_extrato)
-    print('DioBank================================ ')
